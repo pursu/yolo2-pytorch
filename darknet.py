@@ -280,7 +280,7 @@ class Darknet19(nn.Module):
         own_dict = self.state_dict()
         keys = list(own_dict.keys())
 
-        for i, start in enumerate(range(0, len(keys), 5)):
+        for i, start in enumerate(range(0, len(keys), 6)): # the origin is 5 , but it can't run in pytorch 0.4.1, so it was become to 6 
             if num_conv is not None and i >= num_conv:
                 break
             end = min(start+5, len(keys))
